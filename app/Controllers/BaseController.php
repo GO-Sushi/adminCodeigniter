@@ -32,7 +32,11 @@ class BaseController extends Controller
 	public function __construct(){
 
 		helper(['url','form']);
+		$this->session = \Config\Services::session();
+		$this->session->start();
 	}
+		
+	
 
 	/**
 	 * Constructor.

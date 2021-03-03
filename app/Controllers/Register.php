@@ -12,7 +12,8 @@ class Register extends BaseController
         //include helper form
         helper('form');
 
-        $this->affichageFormLogin('Register à wwww.site.com',false);
+        $this->affichageFormRegister('Inscription à wwww.site.com',false);
+
 
        
     }
@@ -46,11 +47,11 @@ class Register extends BaseController
                 'validation' => $this->validator
             ];
     
-            $this->affichageFormLogin($pagetitle='',$affmenu=false,$validation=null);
+            $this->affichageFormRegister($pagetitle='',$affmenu=false,$validation=null);
         }
          
     }
-    private function affichageFormLogin($pagetitle='',$affmenu=false,$validation=null){
+    private function affichageFormRegister($pagetitle='',$affmenu=false,$validation=null){
         $data = [
             'page_title' =>  $pagetitle,
             'aff_menu'  => $affmenu,

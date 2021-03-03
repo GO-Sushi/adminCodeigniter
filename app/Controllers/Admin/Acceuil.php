@@ -2,8 +2,8 @@
 
 namespace App\Controllers\Admin;
 use CodeIgniter\Controller;
-
-class Acceuil extends Controller
+use App\Controllers\BaseController;
+class Acceuil extends BaseController
 {
 	public function index()
 	{	
