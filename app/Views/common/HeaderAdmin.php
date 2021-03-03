@@ -78,7 +78,7 @@
             <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="User">Utilisateur</span><span class="badge badge pill purple float-right mr-10">3</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                        <li><a href="page-users-list.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="List">Lister</span></a> <!--  class="active"  si le lien est actif -->
+                        <li><a href=<?= base_url('Admin/Users'); ?>><i class="material-icons">radio_button_unchecked</i><span data-i18n="List">Lister</span></a> <!--  class="active"  si le lien est actif -->
                         </li>
                         
                         <li><a href="page-users-edit.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Edit">Ajouter</span></a>
