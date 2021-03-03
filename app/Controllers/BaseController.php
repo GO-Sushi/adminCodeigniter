@@ -8,7 +8,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class BaseController
+ * Class Controller
  *
  * BaseController provides a convenient place for loading components
  * and performing functions that are needed by all your controllers.
@@ -28,6 +28,11 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
+
+	public function __construct(){
+
+		helper(['url','form']);
+	}
 
 	/**
 	 * Constructor.

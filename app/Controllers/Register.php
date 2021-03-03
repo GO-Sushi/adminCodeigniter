@@ -3,7 +3,7 @@
 use CodeIgniter\Controller;
 use App\Models\UserModel;
  
-class Register extends Controller
+class Register extends BaseController
 {
 
     
@@ -11,14 +11,8 @@ class Register extends Controller
     {
         //include helper form
         helper('form');
-         $data = [
-			'page_title' => 'Register à wwww.site.com' ,
-			'aff_menu'  => false
-		];
 
-		echo view('common/HeaderAdmin' , 	$data);
-        echo view('register', $data);
-		echo view('common/FooterSite');
+        $this->affichageFormLogin('Register à wwww.site.com',false);
 
        
     }
@@ -26,7 +20,7 @@ class Register extends Controller
     public function save()
     {
         //include helper form
-        helper('form');
+        //helper('form');
         //set rules validation form
         $rules = [
             'name'          => 'required|min_length[3]|max_length[20]',
@@ -52,11 +46,22 @@ class Register extends Controller
                 'validation' => $this->validator
             ];
     
-            echo view('common/HeaderAdmin' , 	$data);
-            echo view('register', $data);
-            echo view('common/FooterSite');
+            $this->affichageFormLogin($pagetitle='',$affmenu=false,$validation=null);
         }
          
     }
+    private function affichageFormLogin($pagetitle='',$affmenu=false,$validation=null){
+        $data = [
+            'page_title' =>  $pagetitle,
+            'aff_menu'  => $affmenu,
+            'validation' => $validation
+        ];
+        echo view('common/HeaderAdmin' , 	$data);
+        echo view('register', $data);
+        echo view('common/FooterSite');
+
+
+    }
  
 }
+ 
