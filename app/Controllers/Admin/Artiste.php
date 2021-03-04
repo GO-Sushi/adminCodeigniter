@@ -2,6 +2,7 @@
 namespace App\Controllers\Admin;
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
+use App\Models\ArtisteModel;
 
 class Artiste extends BaseController
 {
