@@ -20,6 +20,7 @@
                         </div>
                  
                         <div class="responsive-table">
+                <?= $pager->links() ?>
                             <table class="table invoice-data-table white border-radius-4 pt-1">
                                 <thead>
                                     <tr>
@@ -37,6 +38,7 @@
                                 </thead>
 
                                 <tbody>
+                               
                                 
                                 <?php //pas de ';' après un foreach
                                 foreach($artistes as $artiste)
@@ -57,7 +59,7 @@
                                         </td>
                                         <td>
                                             <div class="invoice-action">
-                                                <a href="app-invoice-view.html" class="invoice-action-view mr-4">
+                                                <a href="<?= base_url("admin/artiste/delete/" . $artiste['id']); ?>" class="invoice-action-view mr-4">
                                                     <i class="material-icons">delete</i>
                                                 </a>
                                                 <a href="<?= base_url("admin/artiste/edit/" . $artiste['id']); ?>" class="invoice-action-edit">
@@ -67,8 +69,10 @@
                                         </td>
                                     </tr>
                                 <?php } ?>
+                                
                                 </tbody>
                             </table>
+             <?= $pager->links() ?>
                         </div>
                     </section>
                 </div>

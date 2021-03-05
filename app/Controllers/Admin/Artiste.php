@@ -23,9 +23,11 @@ class Artiste extends BaseController
 		//dd($listeArtistes);
 
 			/** exemple de passage de variable a une vue */ 
-			$data = ['artistes'=>$listeArtistes ,
-				'page_title' => 'Admin > Artiste Liste' ,
-				'aff_menu'  => true ,
+			$data = ['artistes'=>$listeArtistes,
+						'artistes' => $this->artisteModel->paginate(10),
+            			'pager' => $this->artisteModel->pager,
+					'page_title' => 'Admin > Artiste Liste' ,
+					'aff_menu'  => true ,
 			];
 	
 
@@ -37,7 +39,7 @@ class Artiste extends BaseController
 
 	public function edit($id=null){
 
-		$formArtiste = $this->artisteModel->where('id',$id)->first();
+		
 		
 
 		//dd($listeArtistes);
@@ -65,11 +67,12 @@ class Artiste extends BaseController
 						'prenom'    => $this->request->getVar('prenom'),
 						'annee_naissance'    => $this->request->getVar('annee_naissance')
 					]; 
+					//dd($data);
 					if($this->request->getVar('save')=='update'){
 						$this->artisteModel->where('id',$id)->set($data)->update();
 					}else{
-						$this->artisteModel->savedata('id',$id)->set($data)->create();
-						return redirect()->to('/Admin/Artiste');
+						$this->artisteModel->save($data);
+						//return redirect()->to('/Admin/Artiste');
 					}
 					
 				}
@@ -85,5 +88,17 @@ class Artiste extends BaseController
 			echo view('Admin/Artiste/Edit' ,         $data);
 			echo view('common/FooterSite');
 		}
+
+		public function delete($id=0){
+		
+			$this->artisteModel->where('id',$id)->delete();
+				return redirect()->to('/admin/artiste');
+			
+			
+
+		
+
+		}
+		
 }
 ?>

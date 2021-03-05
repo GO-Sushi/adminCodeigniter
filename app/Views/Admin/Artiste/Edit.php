@@ -27,7 +27,7 @@
         <input name="save" value="update" type="hidden">
             <?php }else{ ?>
                     <!-- je creer un nouvel enregistrement -->
-        <input name="update" value="create" type="hidden">
+        <input name="save" value="create" type="hidden">
              <?php } ?>
       <div class="row">
         <div class="input-field col s6">
