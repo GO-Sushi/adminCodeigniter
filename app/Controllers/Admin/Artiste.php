@@ -20,20 +20,18 @@ class Artiste extends BaseController
 
 		$listeArtistes = $this->artisteModel->findAll();
 
-		//dd($listeArtistes);
+			//dd($listeArtistes);
 
 			/** exemple de passage de variable a une vue */ 
 			$data = ['artistes'=>$listeArtistes,
-						'artistes' => $this->artisteModel->paginate(10),
+						'artistes' => $this->artisteModel->orderBy('id','DESC')->paginate(10),
             			'pager' => $this->artisteModel->pager,
-					'page_title' => 'Admin > Artiste Liste' ,
-					'aff_menu'  => true ,
-			];
-	
-
-		echo view('common/HeaderAdmin' , 	$data);
-		echo view('Admin/Artiste/Liste' ,         $data);
-		echo view('common/FooterSite');
+						'page_title' => 'Admin > Artiste Liste' ,
+						'aff_menu'  => true ,
+					];
+						echo view('common/HeaderAdmin' , 	$data);
+						echo view('Admin/Artiste/Liste' ,         $data);
+						echo view('common/FooterSite');
 
 	}
 
@@ -42,7 +40,7 @@ class Artiste extends BaseController
 		
 		
 
-		//dd($listeArtistes);
+			//dd($listeArtistes);
 			//je controle si je viens de mon formulaire 
 			/********************************************************************
 			 * 
@@ -62,22 +60,23 @@ class Artiste extends BaseController
 				 //dd($rules);
 				if($this->validate($rules)){
 					$data = [
-						//les clée conrespondeent aux champ dans Artiste model
+				//les clée conrespondeent aux champ dans Artiste model
 						'nom'     => $this->request->getVar('nom'),
 						'prenom'    => $this->request->getVar('prenom'),
 						'annee_naissance'    => $this->request->getVar('annee_naissance')
 					]; 
-					//dd($data);
+				//dd($data);
 					if($this->request->getVar('save')=='update'){
 						$this->artisteModel->where('id',$id)->set($data)->update();
 					}else{
 						$this->artisteModel->save($data);
-						//return redirect()->to('/Admin/Artiste');
+				//return redirect()->to('/Admin/Artiste');
 					}
 					
 				}
 			}
 			/** exemple de passage de variable a une vue */ 
+			$formArtiste=$this->artisteModel->where('id',$id)->first();
 			$data = [
 				'formArtiste'=>$formArtiste,
 				'page_title' => 'Admin > Artiste Liste' ,
@@ -92,12 +91,7 @@ class Artiste extends BaseController
 		public function delete($id=0){
 		
 			$this->artisteModel->where('id',$id)->delete();
-				return redirect()->to('/admin/artiste');
-			
-			
-
-		
-
+				return redirect()->to('/admin/artiste/');
 		}
 		
 }
