@@ -51,7 +51,6 @@ class Home extends BaseController
 		echo view('common/HeaderSite' , $data);
 		echo view('Site/Index' , $data);
 		echo view('common/FooterSite');
-
 	}
 
 }

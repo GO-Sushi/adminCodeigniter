@@ -42,6 +42,7 @@
         Here is the gradient card with flat image for all gradient classes please check
         <a href="css-color.html" target="_blank"> css-color.html</a>.
       </p>
+      
       <div class="row">
       <?php
     foreach($tabFilms as $film)
