@@ -2799,10 +2799,6 @@ select
 
 @media only screen and (min-width: 993px)
 {
-    #main
-    {
-        padding-left: 250px;
-    }
     #main.main-full
     {
         padding-left: 64px;

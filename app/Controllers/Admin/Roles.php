@@ -55,7 +55,7 @@ class Roles extends BaseController
              */
 			
 			echo view('common/HeaderAdmin' , $data);
-			echo view('Admin/Roles/List', $data);
+			echo view('admin/Role/List', $data);
 			echo view('common/FooterAdmin');
 	}
     public function edit($idActeur = null, $idFilm = null)
@@ -122,7 +122,7 @@ class Roles extends BaseController
 		];
 
 		echo view('common/HeaderAdmin' , 	$data);
-		echo view('admin/Roles/Edit', $data);
+		echo view('admin/Role/Edit', $data);
 		echo view('common/FooterSite');
 		
 		

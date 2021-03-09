@@ -35,7 +35,6 @@
     // teste pour afficher le menu de l'admin ou pas
  if($aff_menu){ 
      ?>
-
  <header class="page-topbar" id="header">
         <div class="navbar navbar-fixed">
             <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-purple-deep-orange gradient-shadow">
@@ -116,5 +115,4 @@
         <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
     </aside>
     <!-- END: SideNav-->
-
 <?php } ?>

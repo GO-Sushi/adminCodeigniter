@@ -66,11 +66,25 @@ class Artiste extends BaseController
 						'annee_naissance'    => $this->request->getVar('annee_naissance')
 					]; 
 				//dd($data);
-					if($this->request->getVar('save')=='update'){
-						$this->artisteModel->where('id',$id)->set($data)->update();
-					}else{
-						$this->artisteModel->save($data);
-				//return redirect()->to('/Admin/Artiste');
+				if($save == "update")
+				{
+						$file = $this->request->getFile('imageArtiste'); //1. JE RECUPERE LES INFOS DE L'IMAGE
+						if($file)
+						{	
+							if ($file->isValid() && ! $file->hasMoved())
+							{
+								$newName = $file->getRandomName();
+								$file->move(ROOTPATH.'/public/uploads', $newName);
+								$dataSave["image"] = $newName;
+							}
+						} 
+						$this->artistesModel->where('id', $id)
+						->set($dataSave)
+						->update();
+						//return redirect()->to('/admin/Artistes');
+					} else { 
+						$this->artistesModel->save($dataSave);
+						return redirect()->to('/admin/Artistes');
 					}
 					
 				}
