@@ -51,13 +51,19 @@
           <div class="card gradient-shadow gradient-45deg-light-blue-cyan border-radius-3">
             <div class="card-content center">
               <img src="../../../image/validate.png" alt="images" class="width-50" />
-              <h5 class="white-text lighten-4"><?php echo $film['titre']; ?></h5>
-              <p class="white-text lighten-4"><?php echo $film['genre']; ?></p>
+
+              <h6 class="white-text lighten-4">
+              <a href="<?php echo base_url('/home/index/realisateur/'.$film['id_realisateur'])?>"
+               class="invoice-action-view mr-4"><?php echo $film['titre']; ?></p> </a></h6>
+
+              <p  class="white-text lighten-4"> 
+              <a href="<?php echo base_url('/home/index/realisateur/'.$film['id_realisateur'])?>"
+               class="invoice-action-view mr-4"><?php echo $film['genre']; ?></p> </a>
+              
             </div>
           </div>
         </div>
         <?php  } ?>
-        
       </div>
       
     </div>

@@ -25,12 +25,18 @@ class Home extends BaseController
 	}
 	
 
-
-
-	public function index()
+	
+	public function index($type=null , $elementRecherche=null )
 	{
+		$marecherche=$this->filmsModel->orderBy('id', 'DESC')->paginate(12);
+		if(!empty($type) && (!empty($elementRecherche))){
+		$marecherche=$this->filmsModel->where("id_realisateur",$elementRecherche )->orderBy('id', 'DESC')->paginate(12);
+		}
+
 		$nameGenre = $this->genresModel;
 		$nameActeurs = $this->artistesModel;
+		$titre=null;
+
 	
 		/**************************************************************** 
 		  ** data corresponds au données que je souhaite passer a ma vue 
@@ -38,7 +44,7 @@ class Home extends BaseController
 		$data = [
 			'page_title' => 'Les differents films du site' ,
 			'aff_menu'  => true, 
-			'tabFilms'=> $this->filmsModel->orderBy('id', 'DESC')->paginate(12),
+			'tabFilms'=> $marecherche,
 			'pager'=>  $this->rolesModel->pager,
 		];
 		
