@@ -30,7 +30,38 @@ class Home extends BaseController
 	{
 		$marecherche=$this->filmsModel->orderBy('id', 'DESC')->paginate(12);
 		if(!empty($type) && (!empty($elementRecherche))){
-		$marecherche=$this->filmsModel->where("id_realisateur",$elementRecherche )->orderBy('id', 'DESC')->paginate(12);
+
+			switch ($type){
+
+				case "realisateur":
+					//affichage des realisateur en fonction de leurs films
+						$marecherche=$this->filmsModel->like("id_realisateur")
+						->orderBy('id', 'DESC')->paginate(12);
+					break;
+				
+				case "genre": 
+					//affichage des realisateur en fonction des genres
+					//utiliser la fonction lower pour convertir en minuscule la chaine reçus :
+					// SELECT * FROM `films` WHERE lower(genre)=lower('Drame')
+
+						$marecherche=$this->filmsModel->like("genre",$elementRecherche ,'both',null,true)
+						->orderBy('id', 'DESC')->paginate(12);
+					break;
+
+				case"pays":
+					//affichage des realisateur en fonction des genres
+					$marecherche=$this->filmsModel->like("code_pays",$elementRecherche ,'both',null,true)
+					->orderBy('id', 'DESC')->paginate(12);
+					break;
+
+				case "recherche":
+					//navigateur de recherche pour trouver un element par rapport au type 
+					$marecherche=$this->filmsModel->like( "titre",$elementRecherche ,'both',null,true)->orlike("resume",$elementRecherche ,'both',null,true)
+						->orderBy('id', 'DESC')->paginate(12);
+
+
+				
+			}
 		}
 
 		$nameGenre = $this->genresModel;

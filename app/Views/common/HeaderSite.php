@@ -35,8 +35,10 @@
             <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-purple-deep-orange gradient-shadow">
                 <div class="nav-wrapper">
                     <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-                        <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize" data-search="template-list">
+                        <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize"  data-search="template-list" >
+                        <button type="button" class="btn btn-dark">envoyer</button>
                         <ul class="search-list collection display-none"></ul>
+                       
                     </div>
                     <ul class="navbar-list right">
                         <li class="dropdown-language"><a class="waves-effect waves-block waves-light translation-button" href="#" data-target="translation-dropdown"><span class="flag-icon flag-icon-gb"></span></a></li>

@@ -42,6 +42,7 @@
         Here is the gradient card with flat image for all gradient classes please check
         <a href="css-color.html" target="_blank"> css-color.html</a>.
       </p>
+                
       
       <div class="row">
       <?php
@@ -58,14 +59,19 @@
                class="invoice-action-view mr-4"><?php echo $film['titre']; ?></p> </a></h6>
 
               <p  class="white-text lighten-4"> 
-              <a href="<?php echo base_url('/home/index/realisateur/'.$film['id_realisateur'])?>"
+              <a href="<?php echo base_url('/home/index/genre/'.$film['genre'])?>"
                class="invoice-action-view mr-4"><?php echo $film['genre']; ?></p> </a>
+
+               <p  class="white-text lighten-4"> 
+              <a href="<?php echo base_url('/home/index/pays/'.$film['code_pays'])?>"
+               class="invoice-action-view mr-4"><?php echo $film['code_pays']; ?></p> </a>
               
             </div>
           </div>
         </div>
         <?php  } ?>
       </div>
+                
       
     </div>
   </div>
